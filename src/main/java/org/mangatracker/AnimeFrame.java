@@ -36,13 +36,14 @@ public class AnimeFrame {
         ImageIcon imageIcon = new ImageIcon(ImageIO.read(imageURL));
 
         // Create JFrame
-        JFrame frame = new JFrame("Anime Tracker");
+        JFrame frame = new JFrame("Anime Random");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 700);
         frame.setLocationRelativeTo(null);
+        frame.setIconImage(new ImageIcon("src/main/java/org/mangatracker/images/logo.png").getImage());
 
         // Load background image
-        File backgroundFile = new File("src/main/java/org/mangatracker/images/anime-framebackground.png");
+        File backgroundFile = new File("src/main/java/org/mangatracker/images/loginbackground.jpg");
         Image backgroundImage = ImageIO.read(backgroundFile);
 
         // Main panel (for content)
@@ -61,7 +62,7 @@ public class AnimeFrame {
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
         centerPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JLabel titleLabel = new JLabel("Title: " + animeInfo.get(1));  // Assume title is in animeInfo.get(1)
+        JLabel titleLabel = new JLabel(animeInfo.get(1));  // Assume title is in animeInfo.get(1)
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
@@ -69,22 +70,36 @@ public class AnimeFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setOpaque(false);  // Make button panel transparent
 
-        // Create rounded buttons
-        JButton button1 = new JButton("⭐");
-
-        buttonPanel.add(button1);
 
 
         // === Bottom Random Button ===
-        JButton randomButton = new JButton("RANDOM");
+        JButton randomButton = new JButton("Search 🔎");
         randomButton.setPreferredSize(new Dimension(200, 50));
         randomButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        randomButton.setFocusable(false);
+        randomButton.setForeground(Color.white);
+        randomButton.setBackground(Color.BLUE);
+        randomButton.addActionListener(e -> {
+            ArrayList<String> randomAnime = AnimeApi.getRandomAnime();
+            if (randomAnime.isEmpty()) return;
+
+            try {
+                URL randomImageUrl = new URL(randomAnime.get(0));
+                ImageIcon animeImage = new ImageIcon(ImageIO.read(randomImageUrl));
+                imageLabel.setIcon(animeImage);
+                titleLabel.setText(randomAnime.get(1));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+        buttonPanel.add(randomButton);
 
         // Add to centerPanel
         centerPanel.add(titleLabel);
-        centerPanel.add(buttonPanel);
         centerPanel.add(Box.createVerticalStrut(20));
-        centerPanel.add(randomButton);
+        centerPanel.add(buttonPanel);
+
+
 
         // Set content pane with background drawing
         frame.setContentPane(new JPanel() {

@@ -49,7 +49,7 @@ public class AnimeApi {
         }
 
         String imageLink = root.path("data").path("images").path("jpg").path("image_url").asText();
-        String titleDefault = root.path("data").path("titleDefault").asText();
+        String titleDefault = root.path("data").path("title").asText();
         String titleInEnglish = root.path("data").path("title_english").asText();
 
         ArrayList<String> animeInfo = new ArrayList<>();

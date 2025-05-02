@@ -96,8 +96,9 @@ public class LoginManager {
 
             try {
                 if(authenticateUser(username,password)){
-                    frame.dispose();
                     AnimeFrame.AnimeFrameUI();
+                    frame.dispose();
+
                 }
                 else{
                     usernameField.setText("");
