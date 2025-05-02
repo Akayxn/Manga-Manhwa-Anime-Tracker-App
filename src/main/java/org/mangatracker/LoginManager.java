@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
+import java.io.IOException;
 import java.util.Map;
 
 public class LoginManager {
@@ -36,11 +37,11 @@ public class LoginManager {
         loginPanel.setPreferredSize(new Dimension(400, 300));
 
 
+
         ImageIcon logoIcon = new ImageIcon("src/main/java/org/mangatracker/images/logo.png");
         Image logoImage = logoIcon.getImage().getScaledInstance(220,40, Image.SCALE_SMOOTH);
         JLabel logoLabel = new JLabel(new ImageIcon(logoImage));
         logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        loginPanel.add(logoLabel); //  Add logo image to panel
         loginPanel.add(Box.createVerticalStrut(10)); // spacing
 
         // Username
@@ -94,8 +95,16 @@ public class LoginManager {
             String password = String.valueOf(passwordArray);
 
             try {
-                System.out.println(authenticateUser(username,password));
-            } catch (JsonProcessingException ex) {
+                if(authenticateUser(username,password)){
+                    frame.dispose();
+                    AnimeFrame.AnimeFrameUI();
+                }
+                else{
+                    usernameField.setText("");
+                    passwordField.setText("");
+
+                }
+            } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
 
