@@ -1,14 +1,9 @@
-package org.mangatracker;
+package org.randomanime;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.apache.http.auth.UsernamePasswordCredentials;
 
 import javax.swing.*;
-import javax.swing.border.AbstractBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.geom.RoundRectangle2D;
 import java.io.IOException;
 import java.util.Map;
 

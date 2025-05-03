@@ -1,4 +1,4 @@
-package org.mangatracker;
+package org.randomanime;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -9,7 +9,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AnimeApi {
     private static final String API_URL = "https://api.jikan.moe/v4/random/anime";

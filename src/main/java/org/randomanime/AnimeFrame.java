@@ -1,9 +1,7 @@
-package org.mangatracker;
+package org.randomanime;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.AbstractBorder;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
