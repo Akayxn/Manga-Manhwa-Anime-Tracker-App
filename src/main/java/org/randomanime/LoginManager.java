@@ -17,7 +17,7 @@ public class LoginManager {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        frame.setIconImage(new ImageIcon("src/main/java/org/mangatracker/images/logo.png").getImage());
+        frame.setIconImage(new ImageIcon("src/main/java/org/randomanime/images/logo.png").getImage());
 
 
 
@@ -33,7 +33,7 @@ public class LoginManager {
 
 
 
-        ImageIcon logoIcon = new ImageIcon("src/main/java/org/mangatracker/images/logo.png");
+        ImageIcon logoIcon = new ImageIcon("src/main/java/org/randomanime/images/logo.png");
         Image logoImage = logoIcon.getImage().getScaledInstance(220,40, Image.SCALE_SMOOTH);
         JLabel logoLabel = new JLabel(new ImageIcon(logoImage));
         logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -122,7 +122,7 @@ public class LoginManager {
     }
 
     private static JPanel getJPanel() {
-        ImageIcon backgroundPath = new ImageIcon("src/main/java/org/mangatracker/images/loginbackground.jpg");
+        ImageIcon backgroundPath = new ImageIcon("src/main/java/org/randomanime/images/loginbackground.jpg");
         Image background = backgroundPath.getImage();
 
         // Create custom panel that paints the background image

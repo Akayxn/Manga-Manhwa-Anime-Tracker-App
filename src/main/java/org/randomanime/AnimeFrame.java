@@ -38,10 +38,10 @@ public class AnimeFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(900, 700);
         frame.setLocationRelativeTo(null);
-        frame.setIconImage(new ImageIcon("src/main/java/org/mangatracker/images/logo.png").getImage());
+        frame.setIconImage(new ImageIcon("src/main/java/org/randomanime/images/logo.png").getImage());
 
         // Load background image
-        File backgroundFile = new File("src/main/java/org/mangatracker/images/loginbackground.jpg");
+        File backgroundFile = new File("src/main/java/org/randomanime/images/loginbackground.jpg");
         Image backgroundImage = ImageIO.read(backgroundFile);
 
         // Main panel (for content)
